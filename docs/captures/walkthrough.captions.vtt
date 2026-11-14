@@ -1,49 +1,49 @@
 WEBVTT
 
 s00
-00:00:00.000 --> 00:00:11.149
+00:00:00.000 --> 00:00:10.417
 Two identical customers at a mock bank use the same bill pay agent. One shares a password, the other approves a grant.
 
 s01
-00:00:11.149 --> 00:00:24.665
+00:00:10.417 --> 00:00:22.283
 With the password, the bank sees the customer. With the grant, it sees the agent and holds it to the customer's limits.
 
 s02
-00:00:24.665 --> 00:00:40.420
+00:00:22.283 --> 00:00:35.316
 A normal water bill gets paid both ways, and the grant adds no step for the customer.
 
 s03
-00:00:40.420 --> 00:00:49.263
+00:00:35.316 --> 00:00:42.970
 Next, an invoice carries a hidden instruction, scripted for this demo, to pay a different account.
 
 s04
-00:00:49.263 --> 00:01:02.630
+00:00:42.970 --> 00:00:54.232
 With the password, the money goes. With the grant, the bank refuses, because that account isn't an approved payee.
 
 s05
-00:01:02.630 --> 00:01:14.628
+00:00:54.232 --> 00:01:05.055
 Now the customer wants the bill pay agent gone. A new password signs out both agents and the customer.
 
 s06
-00:01:14.628 --> 00:01:25.221
+00:01:05.055 --> 00:01:13.048
 With the grant, the bank revokes that one agent, and everything else keeps working.
 
 s07
-00:01:25.221 --> 00:01:42.592
+00:01:13.048 --> 00:01:27.363
 Then the customer disputes the water payment. The password leaves a login; the grant leaves a signed record naming the agent.
 
 s08
-00:01:42.592 --> 00:01:57.069
+00:01:27.363 --> 00:01:39.687
 Last, every OpenA2A service is blocked. The bank still makes the same four decisions, with no outbound connections.
 
 s09
-00:01:57.069 --> 00:02:08.834
+00:01:39.687 --> 00:01:51.452
 In this demo, the bank blocks unauthorized actions, including those triggered by prompt injection, because it checks each payment itself.
 
 s10
-00:02:08.834 --> 00:02:17.411
+00:01:51.452 --> 00:01:59.126
 If you run security at a bank or credit union, write to the address on screen.
 
 s11
-00:02:17.411 --> 00:02:26.240
+00:01:59.126 --> 00:02:08.040
 The bank is fictional and the scenarios are scripted. Open items, like proof of possession, are labeled on screen.

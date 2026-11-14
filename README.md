@@ -13,7 +13,7 @@ This mock bank runs one agent two ways: with the password, and with a grant the 
 
 ## Run it yourself
 
-Requirements: macOS, git, Node.js 22.12.0 or later and a browser. Checked on macOS 26.6.2 arm64 with Node.js 26.12.1 in Chrome 156.0.8078.48, 2026-10-24.
+Requirements: macOS, git, Node.js 22.12.0 or later and a browser. Checked on macOS 26.4 arm64 with Node.js 22.20.0 in Chrome 157.0.8103.51, 2026-11-14.
 
 ```sh
 git clone https://github.com/opena2a-org/agent-delegation-demo
@@ -22,14 +22,14 @@ npm ci
 npm start
 ```
 
-What `npm start` prints (captured from agent-banking-delegation-demo at commit 2db40bb, 2026-10-30, on the scripted Example Bank fixture):
+What `npm start` prints (captured from agent-banking-delegation-demo at commit 4a5e240, 2026-11-14, on the scripted Example Bank fixture):
 
 ```text
 
 > agent-banking-delegation-demo@0.1.0 start
 > node bin/start.mjs
 
-Agent banking delegation demo, build 2db40bb
+Agent banking delegation demo, build 4a5e240
 Ready. Open http://127.0.0.1:7380/ in a browser.
 Press Ctrl+C to stop.
 ```
@@ -38,23 +38,23 @@ The repository's `.npmrc` tells npm commands run in this directory to refuse a N
 
 ## The walkthrough
 
-Every demo screen shown here was captured from this repository at commit [2db40bb](https://github.com/opena2a-org/agent-delegation-demo/commit/2db40bbca4a8c83267bcfc4e7a56fcc4e0f67282), 2026-10-30, on the scripted Example Bank fixture. The footer of each screen shows the same build.
+Every demo screen shown here was captured from this repository at commit [4a5e240](https://github.com/opena2a-org/agent-delegation-demo/commit/4a5e2406b07cb34e9895d59fc305bf7570a8f2a3), 2026-11-14, on the scripted Example Bank fixture. The footer of each screen shows the same build.
 
 ![Same agent, same bills, two ways into the bank. This mock bank runs one agent two ways: with the password, and with a grant the bank checks on every payment.](docs/captures/00-overview.png)
 
-Captured on 2026-10-30 from agent-banking-delegation-demo at commit 2db40bb against the scripted Example Bank fixture.
+Captured on 2026-11-14 from agent-banking-delegation-demo at commit 4a5e240 against the scripted Example Bank fixture.
 
 ![With a grant, the bank blocks an unapproved payee. Path A: Paid the fake invoice. Path B: Payment blocked.](docs/captures/03-scenario-2-fake-invoice.png)
 
-Captured on 2026-10-30 from agent-banking-delegation-demo at commit 2db40bb against the scripted Example Bank fixture.
+Captured on 2026-11-14 from agent-banking-delegation-demo at commit 4a5e240 against the scripted Example Bank fixture.
 
 ![With a grant, the bank's record names the agent. Path A: No agent on record. Path B: Agent on record.](docs/captures/05-scenario-4-dispute.png)
 
-Captured on 2026-10-30 from agent-banking-delegation-demo at commit 2db40bb against the scripted Example Bank fixture.
+Captured on 2026-11-14 from agent-banking-delegation-demo at commit 4a5e240 against the scripted Example Bank fixture.
 
-![Fake invoice chapter of the agent-banking-delegation-demo walkthrough, recorded at commit 2db40bb, 2026-10-30. With the password the fake invoice is paid; with the grant the bank refuses the unapproved payee.](docs/captures/walkthrough-fake-invoice.gif)
+![Fake invoice chapter of the agent-banking-delegation-demo walkthrough, recorded at commit 4a5e240, 2026-11-14. With the password the fake invoice is paid; with the grant the bank refuses the unapproved payee.](docs/captures/walkthrough-fake-invoice.gif)
 
-Recorded on 2026-10-30 from agent-banking-delegation-demo at commit 2db40bb against the scripted Example Bank fixture; the Fake invoice chapter of the walkthrough; waits shortened.
+Recorded on 2026-11-14 from agent-banking-delegation-demo at commit 4a5e240 against the scripted Example Bank fixture; the Fake invoice chapter of the walkthrough; waits shortened.
 
 All nine screens, each with its caption: [docs/walkthrough.md](docs/walkthrough.md).
 
