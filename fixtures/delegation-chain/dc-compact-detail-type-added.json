@@ -1,0 +1,46 @@
+{
+  "name": "draft-asor-wimse-agent-delegation-chain-03/dc-compact-detail-type-added",
+  "description": "DT_2 carries a second authorization detail, of the type payment_initiation, which DT_1 does not carry; a token carries exactly one detail, of the type agent_delegation (section 4.4).",
+  "fixtureType": "dc",
+  "tokenForm": "compact",
+  "spec": [
+    {
+      "id": "draft-asor-wimse-agent-delegation-chain-03",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-asor-wimse-agent-delegation-chain-03",
+      "section": "4 Authority Representation"
+    },
+    {
+      "id": "draft-asor-wimse-agent-delegation-chain-03",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-asor-wimse-agent-delegation-chain-03",
+      "section": "4.4 Authorization Detail Types and the Verifier"
+    }
+  ],
+  "verifierState": {
+    "clockNumericDate": 1794614400,
+    "acceptedAlgorithms": [
+      "Ed25519"
+    ],
+    "keys": [
+      {
+        "kid": "examplebank-chain-root-1",
+        "alg": "Ed25519",
+        "publicJwk": {
+          "crv": "Ed25519",
+          "kty": "OKP",
+          "x": "MbuHajZxcwTbZbEZVrKn72tEsnZYBE1pVSHDF_DPd_U"
+        }
+      }
+    ]
+  },
+  "chain": [
+    "eyJhbGciOiJFZDI1NTE5IiwiYzE0biI6IkpDUyIsImtpZCI6ImV4YW1wbGViYW5rLWNoYWluLXJvb3QtMSIsInR5cCI6ImF0K2p3dCJ9.eyJhdWQiOlsiaHR0cHM6Ly9wYXltZW50cy5leGFtcGxlYmFuay50ZXN0IiwiaHR0cHM6Ly9zdGF0ZW1lbnRzLmV4YW1wbGViYW5rLnRlc3QiXSwiYXV0aG9yaXphdGlvbl9kZXRhaWxzIjpbeyJjb25zdHJhaW50cyI6W3sia2V5IjoiYW1vdW50X2NlbnRzIiwibWF4IjoyNTAwMH0seyJrZXkiOiJhbW91bnRfY2VudHMiLCJtaW4iOjEwMH0seyJrZXkiOiJhbW91bnRfY2VudHMiLCJtYXhfc3VidHJlZSI6NTAwMDB9LHsia2V5IjoiY3JlZGl0b3JfYWNjb3VudCIsIm9uZV9vZiI6WyJERU1PLTAwMDAtMTE4MCIsIkRFTU8tMDAwMC02MzQyIiwiREVNTy0wMDAwLTIyMDgiXX0seyJrZXkiOiJjcmVkaXRvcl9hY2NvdW50Iiwibm90X29uZV9vZiI6WyJERU1PLTAwMDAtNDQxNyJdfSx7ImtleSI6Im1lbW8iLCJwcmVmaXgiOiJERU1PLSJ9LHsia2V5IjoiZWdyZXNzIiwib3JkZXIiOlsibm9uZSIsImludGVybmFsIiwiYW55Il0sInJhbmsiOiJpbnRlcm5hbCJ9LHsia2V5IjoicGF5bWVudHMiLCJtYXhfbGlmZXRpbWUiOjEwfV0sInNjb3BlcyI6WyJiYWxhbmNlLnJlYWQiLCJwYXltZW50LmJpbGxwYXkuKiIsInN0YXRlbWVudHMiXSwidHlwZSI6ImFnZW50X2RlbGVnYXRpb24ifV0sImNsaWVudF9pZCI6ImRlbW9fYmlsbHBheV9hZ2VudCIsImNuZiI6eyJqa3QiOiJtTnhBSmota2ZjSE5JZE9lcFpydU00SmNTeU5zTTRFcEM0T2FJRVl0VXZNIn0sImRlbF9kZXB0aCI6MCwiZGVsX21heF9kZXB0aCI6MywiZXhwIjoxNzk0NjE4MDAwLCJpYXQiOjE3OTQ2MTQxMDAsImlzcyI6Imh0dHBzOi8vYnJva2VyLmV4YW1wbGViYW5rLnRlc3QiLCJqdGkiOiIyNWUwYzU4Yy0xYjBhLTRhMjUtYTJjNS0yYTFlZGY3OWY2YmIiLCJuYmYiOjE3OTQ2MTQxMDAsInN1YiI6IkRFTU8tQ1VTVC0wMDAwQSJ9.zvettvYESYjWOAn8J8Ws2aL10yscDfY2ZGrWlreJcUE0yZnMyAVWI4CxYZuK3eE-ydbnyaIt6NUguoHarBk0Cg",
+    "eyJhbGciOiJFZDI1NTE5IiwiYzE0biI6IkpDUyIsImp3ayI6eyJjcnYiOiJFZDI1NTE5Iiwia3R5IjoiT0tQIiwieCI6Ikw2QVQwaUdLREVCa0NOelJlalJhUUhOMmhlUmhrRVU5X1hkN0J2RmxaYkEifSwidHlwIjoiYXQrand0In0.eyJhdWQiOiJodHRwczovL3BheW1lbnRzLmV4YW1wbGViYW5rLnRlc3QiLCJhdXRob3JpemF0aW9uX2RldGFpbHMiOlt7ImNvbnN0cmFpbnRzIjpbeyJrZXkiOiJhbW91bnRfY2VudHMiLCJtYXgiOjIwMDAwfSx7ImtleSI6ImFtb3VudF9jZW50cyIsIm1pbiI6MTAwfSx7ImtleSI6ImFtb3VudF9jZW50cyIsIm1heF9zdWJ0cmVlIjo0MDAwMH0seyJrZXkiOiJjcmVkaXRvcl9hY2NvdW50Iiwib25lX29mIjpbIkRFTU8tMDAwMC0xMTgwIiwiREVNTy0wMDAwLTYzNDIiXX0seyJrZXkiOiJjcmVkaXRvcl9hY2NvdW50Iiwibm90X29uZV9vZiI6WyJERU1PLTAwMDAtNDQxNyJdfSx7ImtleSI6Im1lbW8iLCJwcmVmaXgiOiJERU1PLUJJTEwtIn0seyJrZXkiOiJlZ3Jlc3MiLCJvcmRlciI6WyJub25lIiwiaW50ZXJuYWwiLCJhbnkiXSwicmFuayI6ImludGVybmFsIn0seyJrZXkiOiJwYXltZW50cyIsIm1heF9saWZldGltZSI6NX1dLCJzY29wZXMiOlsicGF5bWVudC5iaWxscGF5LioiLCJzdGF0ZW1lbnRzIl0sInR5cGUiOiJhZ2VudF9kZWxlZ2F0aW9uIn1dLCJjbGllbnRfaWQiOiJkZW1vX3V0aWxpdGllc19hZ2VudCIsImNuZiI6eyJqa3QiOiJDZ21ucllkejdKM3E4azBHSVhmNjN0RVVfMlJLUzdxdjBPVU1zRkVXd3drIn0sImRlbF9kZXB0aCI6MSwiZGVsX21heF9kZXB0aCI6MywiZXhwIjoxNzk0NjE2MjAwLCJpYXQiOjE3OTQ2MTQxMDAsImlzcyI6ImRlbW9fYmlsbHBheV9hZ2VudCIsImp0aSI6ImY2YTJkOWQxLTkxZGEtNGZlMy04Mzk4LTk3MjNiOThhMzY4NSIsIm5iZiI6MTc5NDYxNDEwMCwicGFyX2hhc2giOiJieS1sMjNmbVJLQVVGX1JWVEM2OW1rZWRYa2NGeE96QUsxZ252M05VUWc4Iiwic3ViIjoiREVNTy1DVVNULTAwMDBBIn0.FdmxhNZUllWQwdzk5cgmrd-HbyUaITawff4OHmWdlynoXmI20ogp0xnxD80eGiJOT-u5u-yQzTnbWqr-RnXPDA",
+    "eyJhbGciOiJFZDI1NTE5IiwiYzE0biI6IkpDUyIsImp3ayI6eyJjcnYiOiJFZDI1NTE5Iiwia3R5IjoiT0tQIiwieCI6IlROMTBkdEZreDl5TGV6VjNsVk5lR0x3a3BiVDFNaVluQ1l1TkFScUlKMEEifSwidHlwIjoiYXQrand0In0.eyJhdWQiOiJodHRwczovL3BheW1lbnRzLmV4YW1wbGViYW5rLnRlc3QiLCJhdXRob3JpemF0aW9uX2RldGFpbHMiOlt7ImNvbnN0cmFpbnRzIjpbeyJrZXkiOiJhbW91bnRfY2VudHMiLCJtYXgiOjEyMDAwfSx7ImtleSI6ImFtb3VudF9jZW50cyIsIm1pbiI6NTAwfSx7ImtleSI6ImFtb3VudF9jZW50cyIsIm1heF9zdWJ0cmVlIjoxMjAwMH0seyJrZXkiOiJjcmVkaXRvcl9hY2NvdW50Iiwib25lX29mIjpbIkRFTU8tMDAwMC02MzQyIl19LHsia2V5IjoiY3JlZGl0b3JfYWNjb3VudCIsIm5vdF9vbmVfb2YiOlsiREVNTy0wMDAwLTQ0MTciLCJERU1PLTAwMDAtMTE4MCJdfSx7ImtleSI6Im1lbW8iLCJwcmVmaXgiOiJERU1PLUJJTEwtUE9XRVItIn0seyJrZXkiOiJlZ3Jlc3MiLCJvcmRlciI6WyJub25lIiwiaW50ZXJuYWwiLCJhbnkiXSwicmFuayI6Im5vbmUifSx7ImtleSI6InBheW1lbnRzIiwibWF4X2xpZmV0aW1lIjoxfV0sInNjb3BlcyI6WyJwYXltZW50LmJpbGxwYXkubWV0cm9fcG93ZXIiXSwidHlwZSI6ImFnZW50X2RlbGVnYXRpb24ifSx7Imluc3RydWN0ZWRBbW91bnQiOnsiYW1vdW50IjoiMTIwLjAwIiwiY3VycmVuY3kiOiJVU0QifSwidHlwZSI6InBheW1lbnRfaW5pdGlhdGlvbiJ9XSwiY2xpZW50X2lkIjoiZGVtb19wb3dlcl9iaWxsX2FnZW50IiwiY25mIjp7ImprdCI6Ik93RVphT3pZWFFaZ2VnajRFUklTX1J5YThneTJjSy1rbHpDR2dYN3lwMk0ifSwiZGVsX2RlcHRoIjoyLCJkZWxfbWF4X2RlcHRoIjozLCJleHAiOjE3OTQ2MTUzMDAsImlhdCI6MTc5NDYxNDEwMCwiaXNzIjoiZGVtb191dGlsaXRpZXNfYWdlbnQiLCJqdGkiOiI4NjBlMDNlNS00NjNiLTRmYjctOTU4Yi03ZGQzZWYzZWUxYWYiLCJuYmYiOjE3OTQ2MTQxMDAsInBhcl9oYXNoIjoiUnVoa05YcjEzYkZJajZJc0JBTmVObEVMZjBKVlM2VHc0MTR6aE9wZ1N5WSIsInN1YiI6IkRFTU8tQ1VTVC0wMDAwQSJ9.9NdS_MjcW3VMcocSjA8gE5PGViS7vLhac5Py90beAZigxL2U2dY53FixSpQFVDpeLr9HumLOEZpoAfXQ4u8wBw"
+  ],
+  "expected": {
+    "verifyResult": "REJECT",
+    "rejectCategory": "malformed",
+    "step": "parse",
+    "index": 2
+  }
+}

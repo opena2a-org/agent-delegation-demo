@@ -1,0 +1,99 @@
+{
+  "$schema": "../schemas/mission-fixture-v1.schema.json",
+  "name": "mission-02/derivation-under-revoked-mission",
+  "description": "The Mission was revoked. The token service derives nothing under it.",
+  "requirement": "Sections 10 and 11: the token service derives under an active Mission; a Token Exchange under a terminated Mission is refused with invalid_request",
+  "spec": [
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "10 Mission Lifecycle"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "11 Error and Challenge Mapping"
+    }
+  ],
+  "keypairRefs": [],
+  "verifierState": {
+    "clockRfc3339": "2026-11-14T15:00:00Z",
+    "missionIssuer": "https://examplebank.test",
+    "resource": "https://api.examplebank.test",
+    "declaredNarrowing": [
+      "mission_resource_access"
+    ],
+    "missions": [
+      {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test",
+        "state": "terminated",
+        "expires_at": "2026-11-14T18:00:00Z",
+        "authority_set": [
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "payments.create",
+              "balance.read"
+            ],
+            "constraints": {
+              "max_amount": {
+                "amount": "250.00",
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "statements.*"
+            ],
+            "delegation": {
+              "max_depth": 2,
+              "allowed_delegates": [
+                {
+                  "sub_profile": "ai_agent"
+                }
+              ]
+            }
+          },
+          {
+            "type": "urn:example:other_type",
+            "resource": "https://api.examplebank.test",
+            "level": "standard"
+          }
+        ],
+        "termination": {
+          "reason": "revoked"
+        }
+      }
+    ]
+  },
+  "expected": {
+    "verifyResult": "REJECT",
+    "rejectCategory": "REVOKED",
+    "reasonContains": "revoked",
+    "error": "invalid_request"
+  },
+  "derivation": {
+    "missionId": "msn_demo_billpay_1",
+    "authorization_details": [
+      {
+        "type": "mission_resource_access",
+        "resource": "https://api.examplebank.test",
+        "actions": [
+          "payments.create",
+          "balance.read"
+        ],
+        "constraints": {
+          "max_amount": {
+            "amount": "250.00",
+            "currency": "USD"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A Mission-Bound Authorization fixture of the bank demo",
+  "description": "One case for the bank's payment API (request) or for its derivation rule, deriveUnderMission (derivation), in the layout of the atx-conformance fixtures: name, description, requirement, spec, keypairRefs, verifierState, expected, and the object under test.",
+  "type": "object",
+  "required": ["$schema", "name", "description", "requirement", "spec", "keypairRefs", "verifierState", "expected"],
+  "additionalProperties": false,
+  "oneOf": [{ "required": ["request"] }, { "required": ["derivation"] }],
+  "properties": {
+    "$schema": { "const": "../schemas/mission-fixture-v1.schema.json" },
+    "name": { "type": "string", "pattern": "^mission-02/(payment-api|derivation)-[a-z0-9][a-z0-9-]*$" },
+    "description": { "type": "string", "minLength": 1 },
+    "requirement": { "description": "The rule the fixture holds, with its section.", "type": "string", "minLength": 1 },
+    "spec": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "ref", "section"],
+        "additionalProperties": false,
+        "properties": { "id": { "type": "string" }, "ref": { "type": "string" }, "section": { "type": "string" } }
+      }
+    },
+    "keypairRefs": { "description": "Empty: the bank's access tokens are opaque and resolved inside the bank, so no key is involved.", "type": "array", "maxItems": 0 },
+    "verifierState": {
+      "type": "object",
+      "required": ["clockRfc3339", "missionIssuer", "resource", "declaredNarrowing", "missions"],
+      "additionalProperties": false,
+      "properties": {
+        "clockRfc3339": { "description": "The decision time.", "type": "string" },
+        "missionIssuer": { "description": "The Mission issuer the bank trusts: the bank itself.", "type": "string" },
+        "resource": { "description": "The payment API's resource identifier, also its audience.", "type": "string" },
+        "declaredNarrowing": { "description": "The authorization_details types the bank declares narrowing for, which the derivation rule narrows.", "type": "array", "items": { "type": "string" } },
+        "missions": { "description": "The bank's Mission records, or null when the payment API has none to resolve against.", "type": ["array", "null"] }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "required": ["verifyResult"],
+      "additionalProperties": false,
+      "properties": {
+        "verifyResult": { "enum": ["ACCEPT", "REJECT"] },
+        "rejectCategory": { "enum": ["REVOKED", "EXPIRED", "NOT_ACTIVE", "UNTRUSTED_ISSUER", "AUDIENCE", "OUTSIDE_AUTHORITY", "UNENFORCEABLE", "RESOLUTION_UNAVAILABLE", "NOT_A_SUBSET"] },
+        "reasonContains": { "type": "string", "minLength": 1 },
+        "httpStatus": { "description": "Payment API fixtures: the response status.", "enum": [200, 401, 403, 503] },
+        "wwwAuthenticate": { "description": "Payment API fixtures: the WWW-Authenticate value of a 401 or 403 refusal.", "type": "string" },
+        "error": { "description": "Derivation fixtures: the OAuth error of a refusal.", "enum": ["invalid_request", "invalid_authorization_details"] }
+      }
+    },
+    "request": {
+      "description": "The access token record the payment API redeems, and the HTTP operation.",
+      "type": "object",
+      "required": ["token", "operation"],
+      "additionalProperties": false,
+      "properties": { "token": { "type": "object" }, "operation": { "type": "object" } }
+    },
+    "derivation": {
+      "description": "The Mission the derivation is under, and the requested authorization_details.",
+      "type": "object",
+      "required": ["missionId", "authorization_details"],
+      "additionalProperties": false,
+      "properties": { "missionId": { "type": "string" }, "authorization_details": { "type": "array" } }
+    }
+  }
+}

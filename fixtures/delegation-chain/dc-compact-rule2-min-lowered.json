@@ -1,0 +1,51 @@
+{
+  "name": "draft-asor-wimse-agent-delegation-chain-03/dc-compact-rule2-min-lowered",
+  "description": "DT_2 lowers the floor amount_cents min to 50, below DT_1's 100 (rule 2, \"min\").",
+  "fixtureType": "dc",
+  "tokenForm": "compact",
+  "spec": [
+    {
+      "id": "draft-asor-wimse-agent-delegation-chain-03",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-asor-wimse-agent-delegation-chain-03",
+      "section": "4.2 Constraint Vocabulary"
+    },
+    {
+      "id": "draft-asor-wimse-agent-delegation-chain-03",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-asor-wimse-agent-delegation-chain-03",
+      "section": "4.3 Subsumption Rules, rule 2"
+    },
+    {
+      "id": "draft-asor-wimse-agent-delegation-chain-03",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-asor-wimse-agent-delegation-chain-03",
+      "section": "6 step 4"
+    }
+  ],
+  "verifierState": {
+    "clockNumericDate": 1794614400,
+    "acceptedAlgorithms": [
+      "Ed25519"
+    ],
+    "keys": [
+      {
+        "kid": "examplebank-chain-root-1",
+        "alg": "Ed25519",
+        "publicJwk": {
+          "crv": "Ed25519",
+          "kty": "OKP",
+          "x": "MbuHajZxcwTbZbEZVrKn72tEsnZYBE1pVSHDF_DPd_U"
+        }
+      }
+    ]
+  },
+  "chain": [
+    "eyJhbGciOiJFZDI1NTE5IiwiYzE0biI6IkpDUyIsImtpZCI6ImV4YW1wbGViYW5rLWNoYWluLXJvb3QtMSIsInR5cCI6ImF0K2p3dCJ9.eyJhdWQiOlsiaHR0cHM6Ly9wYXltZW50cy5leGFtcGxlYmFuay50ZXN0IiwiaHR0cHM6Ly9zdGF0ZW1lbnRzLmV4YW1wbGViYW5rLnRlc3QiXSwiYXV0aG9yaXphdGlvbl9kZXRhaWxzIjpbeyJjb25zdHJhaW50cyI6W3sia2V5IjoiYW1vdW50X2NlbnRzIiwibWF4IjoyNTAwMH0seyJrZXkiOiJhbW91bnRfY2VudHMiLCJtaW4iOjEwMH0seyJrZXkiOiJhbW91bnRfY2VudHMiLCJtYXhfc3VidHJlZSI6NTAwMDB9LHsia2V5IjoiY3JlZGl0b3JfYWNjb3VudCIsIm9uZV9vZiI6WyJERU1PLTAwMDAtMTE4MCIsIkRFTU8tMDAwMC02MzQyIiwiREVNTy0wMDAwLTIyMDgiXX0seyJrZXkiOiJjcmVkaXRvcl9hY2NvdW50Iiwibm90X29uZV9vZiI6WyJERU1PLTAwMDAtNDQxNyJdfSx7ImtleSI6Im1lbW8iLCJwcmVmaXgiOiJERU1PLSJ9LHsia2V5IjoiZWdyZXNzIiwib3JkZXIiOlsibm9uZSIsImludGVybmFsIiwiYW55Il0sInJhbmsiOiJpbnRlcm5hbCJ9LHsia2V5IjoicGF5bWVudHMiLCJtYXhfbGlmZXRpbWUiOjEwfV0sInNjb3BlcyI6WyJiYWxhbmNlLnJlYWQiLCJwYXltZW50LmJpbGxwYXkuKiIsInN0YXRlbWVudHMiXSwidHlwZSI6ImFnZW50X2RlbGVnYXRpb24ifV0sImNsaWVudF9pZCI6ImRlbW9fYmlsbHBheV9hZ2VudCIsImNuZiI6eyJqa3QiOiJtTnhBSmota2ZjSE5JZE9lcFpydU00SmNTeU5zTTRFcEM0T2FJRVl0VXZNIn0sImRlbF9kZXB0aCI6MCwiZGVsX21heF9kZXB0aCI6MywiZXhwIjoxNzk0NjE4MDAwLCJpYXQiOjE3OTQ2MTQxMDAsImlzcyI6Imh0dHBzOi8vYnJva2VyLmV4YW1wbGViYW5rLnRlc3QiLCJqdGkiOiI4YzFhYTRmMC03NTFmLTQzZGYtOGMzNS1iODM0M2E4ZmM4ZmQiLCJuYmYiOjE3OTQ2MTQxMDAsInN1YiI6IkRFTU8tQ1VTVC0wMDAwQSJ9.qgnDMjqoMrPkIVBnMkmYizMuDZEyjyu06MBwsjBA6FikUBr3PhXh2wdkIfRbYJ32rHCdBou_HEsF5VCB77uNCA",
+    "eyJhbGciOiJFZDI1NTE5IiwiYzE0biI6IkpDUyIsImp3ayI6eyJjcnYiOiJFZDI1NTE5Iiwia3R5IjoiT0tQIiwieCI6Ikw2QVQwaUdLREVCa0NOelJlalJhUUhOMmhlUmhrRVU5X1hkN0J2RmxaYkEifSwidHlwIjoiYXQrand0In0.eyJhdWQiOiJodHRwczovL3BheW1lbnRzLmV4YW1wbGViYW5rLnRlc3QiLCJhdXRob3JpemF0aW9uX2RldGFpbHMiOlt7ImNvbnN0cmFpbnRzIjpbeyJrZXkiOiJhbW91bnRfY2VudHMiLCJtYXgiOjIwMDAwfSx7ImtleSI6ImFtb3VudF9jZW50cyIsIm1pbiI6MTAwfSx7ImtleSI6ImFtb3VudF9jZW50cyIsIm1heF9zdWJ0cmVlIjo0MDAwMH0seyJrZXkiOiJjcmVkaXRvcl9hY2NvdW50Iiwib25lX29mIjpbIkRFTU8tMDAwMC0xMTgwIiwiREVNTy0wMDAwLTYzNDIiXX0seyJrZXkiOiJjcmVkaXRvcl9hY2NvdW50Iiwibm90X29uZV9vZiI6WyJERU1PLTAwMDAtNDQxNyJdfSx7ImtleSI6Im1lbW8iLCJwcmVmaXgiOiJERU1PLUJJTEwtIn0seyJrZXkiOiJlZ3Jlc3MiLCJvcmRlciI6WyJub25lIiwiaW50ZXJuYWwiLCJhbnkiXSwicmFuayI6ImludGVybmFsIn0seyJrZXkiOiJwYXltZW50cyIsIm1heF9saWZldGltZSI6NX1dLCJzY29wZXMiOlsicGF5bWVudC5iaWxscGF5LioiLCJzdGF0ZW1lbnRzIl0sInR5cGUiOiJhZ2VudF9kZWxlZ2F0aW9uIn1dLCJjbGllbnRfaWQiOiJkZW1vX3V0aWxpdGllc19hZ2VudCIsImNuZiI6eyJqa3QiOiJDZ21ucllkejdKM3E4azBHSVhmNjN0RVVfMlJLUzdxdjBPVU1zRkVXd3drIn0sImRlbF9kZXB0aCI6MSwiZGVsX21heF9kZXB0aCI6MywiZXhwIjoxNzk0NjE2MjAwLCJpYXQiOjE3OTQ2MTQxMDAsImlzcyI6ImRlbW9fYmlsbHBheV9hZ2VudCIsImp0aSI6IjFiYTU2NGM4LWUzZjAtNGQ1OC04Mzg3LTNkMTlkZTU5ZjBjNyIsIm5iZiI6MTc5NDYxNDEwMCwicGFyX2hhc2giOiJvX3VoMWRmN09EMFhTZFFUWU81TnVLM0RSOTZTLWR6M3pZT2JtMm1abUwwIiwic3ViIjoiREVNTy1DVVNULTAwMDBBIn0.-UtECKS_gCPYhI4egbz-eocU_FJw--ayMJrI6h35a9g8WzXEeiDn-dE0w5rsdO7KdlZxCUtQxlwADwee9WIGAQ",
+    "eyJhbGciOiJFZDI1NTE5IiwiYzE0biI6IkpDUyIsImp3ayI6eyJjcnYiOiJFZDI1NTE5Iiwia3R5IjoiT0tQIiwieCI6IlROMTBkdEZreDl5TGV6VjNsVk5lR0x3a3BiVDFNaVluQ1l1TkFScUlKMEEifSwidHlwIjoiYXQrand0In0.eyJhdWQiOiJodHRwczovL3BheW1lbnRzLmV4YW1wbGViYW5rLnRlc3QiLCJhdXRob3JpemF0aW9uX2RldGFpbHMiOlt7ImNvbnN0cmFpbnRzIjpbeyJrZXkiOiJhbW91bnRfY2VudHMiLCJtYXgiOjEyMDAwfSx7ImtleSI6ImFtb3VudF9jZW50cyIsIm1pbiI6NTB9LHsia2V5IjoiYW1vdW50X2NlbnRzIiwibWF4X3N1YnRyZWUiOjEyMDAwfSx7ImtleSI6ImNyZWRpdG9yX2FjY291bnQiLCJvbmVfb2YiOlsiREVNTy0wMDAwLTYzNDIiXX0seyJrZXkiOiJjcmVkaXRvcl9hY2NvdW50Iiwibm90X29uZV9vZiI6WyJERU1PLTAwMDAtNDQxNyIsIkRFTU8tMDAwMC0xMTgwIl19LHsia2V5IjoibWVtbyIsInByZWZpeCI6IkRFTU8tQklMTC1QT1dFUi0ifSx7ImtleSI6ImVncmVzcyIsIm9yZGVyIjpbIm5vbmUiLCJpbnRlcm5hbCIsImFueSJdLCJyYW5rIjoibm9uZSJ9LHsia2V5IjoicGF5bWVudHMiLCJtYXhfbGlmZXRpbWUiOjF9XSwic2NvcGVzIjpbInBheW1lbnQuYmlsbHBheS5tZXRyb19wb3dlciJdLCJ0eXBlIjoiYWdlbnRfZGVsZWdhdGlvbiJ9XSwiY2xpZW50X2lkIjoiZGVtb19wb3dlcl9iaWxsX2FnZW50IiwiY25mIjp7ImprdCI6Ik93RVphT3pZWFFaZ2VnajRFUklTX1J5YThneTJjSy1rbHpDR2dYN3lwMk0ifSwiZGVsX2RlcHRoIjoyLCJkZWxfbWF4X2RlcHRoIjozLCJleHAiOjE3OTQ2MTUzMDAsImlhdCI6MTc5NDYxNDEwMCwiaXNzIjoiZGVtb191dGlsaXRpZXNfYWdlbnQiLCJqdGkiOiJkYWQyNDEwYi0wNmUzLTQxOGQtYjEwNC05ODYyMGRiNWFmYzkiLCJuYmYiOjE3OTQ2MTQxMDAsInBhcl9oYXNoIjoibkFpbklRWEo5SFlpbTBIUm9naGxaSXphcTVVU3RMRlRhZ2J3dkdsUU12YyIsInN1YiI6IkRFTU8tQ1VTVC0wMDAwQSJ9.iKyBVFNPfST07gksDZgSKnBkdx46Bsbb-37Cs3HIUe7rilioDme7NQQzlFXTdwQa8yC9viMg_Jv2xc-ipJDuAA"
+  ],
+  "expected": {
+    "verifyResult": "REJECT",
+    "rejectCategory": "not_narrower",
+    "step": 4,
+    "index": 2
+  }
+}

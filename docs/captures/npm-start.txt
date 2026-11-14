@@ -1,0 +1,7 @@
+
+> agent-banking-delegation-demo@0.1.0 start
+> node bin/start.mjs
+
+Agent banking delegation demo, build 2db40bb
+Ready. Open http://127.0.0.1:7380/ in a browser.
+Press Ctrl+C to stop.

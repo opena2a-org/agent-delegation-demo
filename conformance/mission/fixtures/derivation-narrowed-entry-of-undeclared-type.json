@@ -1,0 +1,87 @@
+{
+  "$schema": "../schemas/mission-fixture-v1.schema.json",
+  "name": "mission-02/derivation-narrowed-entry-of-undeclared-type",
+  "description": "The requested entry of a type the bank declares no narrowing for differs from the Authority Set entry.",
+  "requirement": "Section 5.5.1: without narrowing declared for the type, the token service never modifies the entry under a claimed subset relation",
+  "spec": [
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "5.5.1 Declared Transformation Capabilities"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "5.4 Subset Rule"
+    }
+  ],
+  "keypairRefs": [],
+  "verifierState": {
+    "clockRfc3339": "2026-11-14T15:00:00Z",
+    "missionIssuer": "https://examplebank.test",
+    "resource": "https://api.examplebank.test",
+    "declaredNarrowing": [
+      "mission_resource_access"
+    ],
+    "missions": [
+      {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test",
+        "state": "active",
+        "expires_at": "2026-11-14T18:00:00Z",
+        "authority_set": [
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "payments.create",
+              "balance.read"
+            ],
+            "constraints": {
+              "max_amount": {
+                "amount": "250.00",
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "statements.*"
+            ],
+            "delegation": {
+              "max_depth": 2,
+              "allowed_delegates": [
+                {
+                  "sub_profile": "ai_agent"
+                }
+              ]
+            }
+          },
+          {
+            "type": "urn:example:other_type",
+            "resource": "https://api.examplebank.test",
+            "level": "standard"
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "verifyResult": "REJECT",
+    "rejectCategory": "NOT_A_SUBSET",
+    "reasonContains": "no narrowing declared",
+    "error": "invalid_authorization_details"
+  },
+  "derivation": {
+    "missionId": "msn_demo_billpay_1",
+    "authorization_details": [
+      {
+        "type": "urn:example:other_type",
+        "resource": "https://api.examplebank.test",
+        "level": "reduced"
+      }
+    ]
+  }
+}

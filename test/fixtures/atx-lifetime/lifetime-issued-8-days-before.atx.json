@@ -1,0 +1,44 @@
+{
+  "id": "00000000-0000-4000-8000-0000000000c1",
+  "atcVersion": "1.1",
+  "agentId": "demo_lifetime_check_agent",
+  "agentDid": "did:opena2a:agent:demo_lifetime_check_agent",
+  "publisher": "agent-banking-delegation-demo",
+  "version": "1.0.0",
+  "contentHash": "0000111122223333444455556666777788889999aaaabbbbccccddddeeeeffff",
+  "buildAttestation": "https://slsa.dev/provenance/v1#opena2a-conformance",
+  "transparencyLogIndex": 42,
+  "capabilities": [
+    "payment:read"
+  ],
+  "behavioralProfile": {
+    "checksum": "sha256:ghi789",
+    "generatedAt": "2026-05-19T00:00:00Z",
+    "observationDays": 14
+  },
+  "scanSummary": {
+    "hma": "passed",
+    "criticalFindings": 0,
+    "highFindings": 0,
+    "secretless": "clean",
+    "cryptoServe": "no-weak-crypto",
+    "oasbLevel": "L1"
+  },
+  "trustScore": 87.5,
+  "trustLevel": 4,
+  "issuedAt": "2026-05-15T00:00:00Z",
+  "expiresAt": "2026-05-24T00:00:00Z",
+  "issuerDid": "did:opena2a:authority:partner.example",
+  "issuerChain": [
+    "did:opena2a:authority:partner.example"
+  ],
+  "signatures": [
+    {
+      "keyId": "did:opena2a:authority:partner.example#key-1",
+      "algorithm": "Ed25519",
+      "value": "6EpmE3DnvvNX+7gxsmdswqprLNoFCXNjTd7isIkcLDcM380CHwdFaP+VjNIqh4s4+YakktEs4dfodaU8Y6g7Aw=="
+    }
+  ],
+  "revoked": false,
+  "createdAt": "2026-05-23T00:00:00Z"
+}

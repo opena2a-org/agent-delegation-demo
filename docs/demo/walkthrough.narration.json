@@ -1,0 +1,113 @@
+{
+  "holdRule": "max(3 s, words / 2.5 + 0.5 s, 1 s per 4 new lines on screen), at most 12 s; the words part is holdSeconds, the lines part is measured when the step runs",
+  "steps": [
+    {
+      "id": "s00",
+      "screen": "overview",
+      "action": "hold",
+      "chapter": "Overview and setup",
+      "text": "Two identical customers at a mock bank use the same bill pay agent. One shares a password, the other approves a grant.",
+      "words": 22,
+      "holdSeconds": 9.3
+    },
+    {
+      "id": "s01",
+      "screen": "setup",
+      "action": "click Approve",
+      "chapter": "Overview and setup",
+      "text": "With the password, the bank sees the customer. With the grant, it sees the agent and holds it to the customer's limits.",
+      "words": 22,
+      "holdSeconds": 9.3
+    },
+    {
+      "id": "s02",
+      "screen": "s1",
+      "action": "click Run scenario 1",
+      "chapter": "Normal bill",
+      "text": "A normal water bill gets paid both ways, and the grant adds no step for the customer.",
+      "words": 17,
+      "holdSeconds": 7.3
+    },
+    {
+      "id": "s03",
+      "screen": "s2",
+      "action": "hold on the invoice",
+      "chapter": "Fake invoice",
+      "text": "Next, an invoice carries a hidden instruction, scripted for this demo, to pay a different account.",
+      "words": 16,
+      "holdSeconds": 6.9
+    },
+    {
+      "id": "s04",
+      "screen": "s2",
+      "action": "click Run scenario 2",
+      "chapter": "Fake invoice",
+      "text": "With the password, the money goes. With the grant, the bank refuses, because that account isn't an approved payee.",
+      "words": 19,
+      "holdSeconds": 8.1
+    },
+    {
+      "id": "s05",
+      "screen": "s3",
+      "action": "click Run scenario 3",
+      "chapter": "Stop one agent",
+      "text": "Now the customer wants the bill pay agent gone. A new password signs out both agents and the customer.",
+      "words": 19,
+      "holdSeconds": 8.1
+    },
+    {
+      "id": "s06",
+      "screen": "s3",
+      "action": "hold on Path B",
+      "chapter": "Stop one agent",
+      "text": "With the grant, the bank revokes that one agent, and everything else keeps working.",
+      "words": 14,
+      "holdSeconds": 6.1
+    },
+    {
+      "id": "s07",
+      "screen": "s4",
+      "action": "click Look up the record",
+      "chapter": "Dispute",
+      "text": "Then the customer disputes the water payment. The password leaves a login; the grant leaves a signed record naming the agent.",
+      "words": 21,
+      "holdSeconds": 8.9
+    },
+    {
+      "id": "s08",
+      "screen": "offline",
+      "action": "click Run offline check",
+      "chapter": "Offline check",
+      "text": "Last, every OpenA2A service is blocked. The bank still makes the same four decisions, with no outbound connections.",
+      "words": 18,
+      "holdSeconds": 7.7
+    },
+    {
+      "id": "s09",
+      "screen": "summary",
+      "action": "hold",
+      "chapter": "Summary",
+      "text": "In this demo, the bank blocks unauthorized actions, including those triggered by prompt injection, because it checks each payment itself.",
+      "words": 20,
+      "holdSeconds": 8.5
+    },
+    {
+      "id": "s10",
+      "screen": "summary",
+      "action": "move to Email",
+      "chapter": "Summary",
+      "text": "If you run security at a bank or credit union, write to the address on screen.",
+      "words": 16,
+      "holdSeconds": 6.9
+    },
+    {
+      "id": "s11",
+      "screen": "summary#limits",
+      "action": "scroll to limits",
+      "chapter": "Summary",
+      "text": "The bank is fictional and the scenarios are scripted. Open items, like proof of possession, are labeled on screen.",
+      "words": 19,
+      "holdSeconds": 8.1
+    }
+  ]
+}

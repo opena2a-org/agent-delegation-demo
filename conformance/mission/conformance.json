@@ -1,0 +1,32 @@
+{
+  "suite": "agent-banking-delegation-demo, Mission-Bound Authorization",
+  "status": "Evidence from a second implementation, mapped to no published suite. The fixtures' home and their requirement mapping are not decided.",
+  "spec": {
+    "id": "draft-mcguinness-oauth-mission",
+    "version": "-02",
+    "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02"
+  },
+  "companion": {
+    "id": "draft-mcguinness-oauth-mission-resource-access",
+    "ref": "https://github.com/mcguinness/mission-bound-authorization/blob/c7b542c48a5958813ddd227b2fc1986631437e5f/draft-mcguinness-oauth-mission-resource-access.md",
+    "use": "the mission_resource_access subset relation and the max_amount constraint"
+  },
+  "fixtureManifest": "MANIFEST.sha256",
+  "vectors": ["vectors/appendix-d-integrity-anchors.json", "vectors/jcs-number-serialization.json"],
+  "implementations": [
+    { "language": "go", "path": "go", "covers": "the Appendix D vectors, the parse-time refusals of Section 6.3.3, the number form" },
+    { "language": "python", "path": "python", "covers": "the Appendix D vectors, the parse-time refusals of Section 6.3.3, the number form" },
+    { "language": "node", "path": "../../src/bank/mission.mjs", "covers": "the Appendix D vectors, the number form, and every fixture" }
+  ],
+  "notCovered": [
+    { "item": "Signed JWT Mission-bound tokens (Section 7)", "reason": "the bank's access tokens are opaque and resolved inside the bank (Section 9.2.4)" },
+    { "item": "Sender-constrained tokens (cnf, DPoP, mutual TLS)", "reason": "the bank's access tokens are bearer tokens that never leave the bank" },
+    { "item": "Delegated tokens and act chains (Section 8)", "reason": "the payment API processes no act chain" },
+    { "item": "Token introspection (Section 9.2)", "reason": "the payment API resolves tokens issuer-locally" },
+    { "item": "The RAR-remediation challenge (Section 9.1.5)", "reason": "the payment API sends insufficient_scope with mission_denial" },
+    { "item": "A resource that requires the mission claim (Section 9.1.1 item 5)", "reason": "the demo's tokens carry no Mission, so the payment API does not require one" },
+    { "item": "resource_match prefix, resource_contract, and common constraints other than max_amount", "reason": "not implemented: the payment API treats them as unenforceable and the derivation rule refuses to narrow them" },
+    { "item": "The Mission Issuer: intent through PAR, approval, the Mission record and issuance with the mission claim", "reason": "not built; the fixtures supply the Mission records and the token records" },
+    { "item": "A derivation at the bank's token service (Token Exchange under a Mission)", "reason": "the derivation rule is deriveUnderMission in src/bank/mission.mjs, which the token service does not call; the derivation fixtures hold deriveUnderMission itself" }
+  ]
+}

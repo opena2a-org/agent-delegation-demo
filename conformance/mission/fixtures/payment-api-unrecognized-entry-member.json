@@ -1,0 +1,112 @@
+{
+  "$schema": "../schemas/mission-fixture-v1.schema.json",
+  "name": "mission-02/payment-api-unrecognized-entry-member",
+  "description": "The applicable entry carries a locations member, which the bank does not implement. The entry provides no authority.",
+  "requirement": "Sections 9.1.1 item 2 and 9.1.4 case 4: an applicable entry with an unrecognized member provides no authority, and the denial says constraint_unrecognized",
+  "spec": [
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "9.1.1 Enforcement Requirements"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "9.1.4 Denial Responses"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission-resource-access",
+      "ref": "https://github.com/mcguinness/mission-bound-authorization/blob/c7b542c48a5958813ddd227b2fc1986631437e5f/draft-mcguinness-oauth-mission-resource-access.md",
+      "section": "Resource Server Enforcement"
+    }
+  ],
+  "keypairRefs": [],
+  "verifierState": {
+    "clockRfc3339": "2026-11-14T15:00:00Z",
+    "missionIssuer": "https://examplebank.test",
+    "resource": "https://api.examplebank.test",
+    "declaredNarrowing": [
+      "mission_resource_access"
+    ],
+    "missions": [
+      {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test",
+        "state": "active",
+        "expires_at": "2026-11-14T18:00:00Z",
+        "authority_set": [
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "payments.create"
+            ],
+            "constraints": {
+              "max_amount": {
+                "amount": "250.00",
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "balance.read"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "verifyResult": "REJECT",
+    "rejectCategory": "UNENFORCEABLE",
+    "reasonContains": "cannot enforce",
+    "httpStatus": 403,
+    "wwwAuthenticate": "Bearer error=\"insufficient_scope\", mission_denial=\"constraint_unrecognized\""
+  },
+  "request": {
+    "token": {
+      "iss": "https://examplebank.test",
+      "sub": "did:opena2a:agent:demo_billpay_agent",
+      "aud": "https://api.examplebank.test",
+      "iat": 1794668400,
+      "exp": 1794668460,
+      "jti": "at_fixture_unrecognized_entry_member",
+      "authorization_details": [
+        {
+          "type": "mission_resource_access",
+          "resource": "https://api.examplebank.test",
+          "actions": [
+            "payments.create"
+          ],
+          "constraints": {
+            "max_amount": {
+              "amount": "150.00",
+              "currency": "USD"
+            }
+          },
+          "locations": [
+            "https://api.examplebank.test"
+          ]
+        }
+      ],
+      "mission": {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test"
+      }
+    },
+    "operation": {
+      "method": "POST",
+      "path": "/v1/payments",
+      "body": {
+        "creditorAccount": "DEMO-0000-1180",
+        "amount": {
+          "amount": "120.00",
+          "currency": "USD"
+        }
+      }
+    }
+  }
+}

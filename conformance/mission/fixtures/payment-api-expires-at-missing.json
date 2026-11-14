@@ -1,0 +1,108 @@
+{
+  "$schema": "../schemas/mission-fixture-v1.schema.json",
+  "name": "mission-02/payment-api-expires-at-missing",
+  "description": "The Mission record's stored state is active, and the record has no expires_at.",
+  "requirement": "Section 6.2.4: a Mission Record's expires_at is required, an RFC 3339 date-time; the bank reads a record without a valid one as not active, and the token is refused with invalid_token",
+  "spec": [
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "6.2.4 Provenance and Expiry"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "10 Mission Lifecycle"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "9.2.4 Introspected Token Consumption"
+    }
+  ],
+  "keypairRefs": [],
+  "verifierState": {
+    "clockRfc3339": "2026-11-14T15:00:00Z",
+    "missionIssuer": "https://examplebank.test",
+    "resource": "https://api.examplebank.test",
+    "declaredNarrowing": [
+      "mission_resource_access"
+    ],
+    "missions": [
+      {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test",
+        "state": "active",
+        "authority_set": [
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "payments.create"
+            ],
+            "constraints": {
+              "max_amount": {
+                "amount": "250.00",
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "balance.read"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "verifyResult": "REJECT",
+    "rejectCategory": "NOT_ACTIVE",
+    "reasonContains": "no valid expires_at",
+    "httpStatus": 401,
+    "wwwAuthenticate": "Bearer error=\"invalid_token\""
+  },
+  "request": {
+    "token": {
+      "iss": "https://examplebank.test",
+      "sub": "did:opena2a:agent:demo_billpay_agent",
+      "aud": "https://api.examplebank.test",
+      "iat": 1794668400,
+      "exp": 1794668460,
+      "jti": "at_fixture_expires_at_missing",
+      "authorization_details": [
+        {
+          "type": "mission_resource_access",
+          "resource": "https://api.examplebank.test",
+          "actions": [
+            "payments.create"
+          ],
+          "constraints": {
+            "max_amount": {
+              "amount": "150.00",
+              "currency": "USD"
+            }
+          }
+        }
+      ],
+      "mission": {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test"
+      }
+    },
+    "operation": {
+      "method": "POST",
+      "path": "/v1/payments",
+      "body": {
+        "creditorAccount": "DEMO-0000-1180",
+        "amount": {
+          "amount": "120.00",
+          "currency": "USD"
+        }
+      }
+    }
+  }
+}

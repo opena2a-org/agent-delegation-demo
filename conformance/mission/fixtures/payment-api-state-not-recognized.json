@@ -1,0 +1,104 @@
+{
+  "$schema": "../schemas/mission-fixture-v1.schema.json",
+  "name": "mission-02/payment-api-state-not-recognized",
+  "description": "The Mission record carries the state value paused, which the bank does not recognize. A state value other than active never permits reliance.",
+  "requirement": "Section 10: every state value other than exactly active, one the consumer does not recognize included, is not active",
+  "spec": [
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "10 Mission Lifecycle"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "9.2.4 Introspected Token Consumption"
+    }
+  ],
+  "keypairRefs": [],
+  "verifierState": {
+    "clockRfc3339": "2026-11-14T15:00:00Z",
+    "missionIssuer": "https://examplebank.test",
+    "resource": "https://api.examplebank.test",
+    "declaredNarrowing": [
+      "mission_resource_access"
+    ],
+    "missions": [
+      {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test",
+        "state": "paused",
+        "expires_at": "2026-11-14T18:00:00Z",
+        "authority_set": [
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "payments.create"
+            ],
+            "constraints": {
+              "max_amount": {
+                "amount": "250.00",
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "balance.read"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "verifyResult": "REJECT",
+    "rejectCategory": "NOT_ACTIVE",
+    "reasonContains": "not active",
+    "httpStatus": 401,
+    "wwwAuthenticate": "Bearer error=\"invalid_token\""
+  },
+  "request": {
+    "token": {
+      "iss": "https://examplebank.test",
+      "sub": "did:opena2a:agent:demo_billpay_agent",
+      "aud": "https://api.examplebank.test",
+      "iat": 1794668400,
+      "exp": 1794668460,
+      "jti": "at_fixture_state_not_recognized",
+      "authorization_details": [
+        {
+          "type": "mission_resource_access",
+          "resource": "https://api.examplebank.test",
+          "actions": [
+            "payments.create"
+          ],
+          "constraints": {
+            "max_amount": {
+              "amount": "150.00",
+              "currency": "USD"
+            }
+          }
+        }
+      ],
+      "mission": {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test"
+      }
+    },
+    "operation": {
+      "method": "POST",
+      "path": "/v1/payments",
+      "body": {
+        "creditorAccount": "DEMO-0000-1180",
+        "amount": {
+          "amount": "120.00",
+          "currency": "USD"
+        }
+      }
+    }
+  }
+}

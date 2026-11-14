@@ -1,0 +1,102 @@
+{
+  "$schema": "../schemas/mission-fixture-v1.schema.json",
+  "name": "mission-02/payment-api-action-outside-authority",
+  "description": "The carried entry permits payments.create, and the request reads the balance (balance.read).",
+  "requirement": "Sections 9.1.1 and 9.1.4: an action outside the carried authority is refused with insufficient_scope and mission_denial insufficient_authority",
+  "spec": [
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "9.1.1 Enforcement Requirements"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "9.1.4 Denial Responses"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "11 Error and Challenge Mapping"
+    }
+  ],
+  "keypairRefs": [],
+  "verifierState": {
+    "clockRfc3339": "2026-11-14T15:00:00Z",
+    "missionIssuer": "https://examplebank.test",
+    "resource": "https://api.examplebank.test",
+    "declaredNarrowing": [
+      "mission_resource_access"
+    ],
+    "missions": [
+      {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test",
+        "state": "active",
+        "expires_at": "2026-11-14T18:00:00Z",
+        "authority_set": [
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "payments.create"
+            ],
+            "constraints": {
+              "max_amount": {
+                "amount": "250.00",
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "balance.read"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "verifyResult": "REJECT",
+    "rejectCategory": "OUTSIDE_AUTHORITY",
+    "reasonContains": "no carried entry",
+    "httpStatus": 403,
+    "wwwAuthenticate": "Bearer error=\"insufficient_scope\", mission_denial=\"insufficient_authority\""
+  },
+  "request": {
+    "token": {
+      "iss": "https://examplebank.test",
+      "sub": "did:opena2a:agent:demo_billpay_agent",
+      "aud": "https://api.examplebank.test",
+      "iat": 1794668400,
+      "exp": 1794668460,
+      "jti": "at_fixture_action_outside_authority",
+      "authorization_details": [
+        {
+          "type": "mission_resource_access",
+          "resource": "https://api.examplebank.test",
+          "actions": [
+            "payments.create"
+          ],
+          "constraints": {
+            "max_amount": {
+              "amount": "150.00",
+              "currency": "USD"
+            }
+          }
+        }
+      ],
+      "mission": {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test"
+      }
+    },
+    "operation": {
+      "method": "GET",
+      "path": "/v1/balance"
+    }
+  }
+}

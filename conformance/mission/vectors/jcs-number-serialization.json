@@ -1,0 +1,100 @@
+{
+  "source": {
+    "what": "ECMAScript Number serialization of each IEEE 754 double, the form RFC 8785 Section 3.2.2.3 requires",
+    "recordedWith": "Node.js v26.12.1, JSON.stringify"
+  },
+  "numbers": [
+    {
+      "ieee754": "0000000000000000",
+      "serialized": "0"
+    },
+    {
+      "ieee754": "8000000000000000",
+      "serialized": "0"
+    },
+    {
+      "ieee754": "0000000000000001",
+      "serialized": "5e-324"
+    },
+    {
+      "ieee754": "8000000000000001",
+      "serialized": "-5e-324"
+    },
+    {
+      "ieee754": "7fefffffffffffff",
+      "serialized": "1.7976931348623157e+308"
+    },
+    {
+      "ieee754": "4340000000000000",
+      "serialized": "9007199254740992"
+    },
+    {
+      "ieee754": "c340000000000000",
+      "serialized": "-9007199254740992"
+    },
+    {
+      "ieee754": "4430000000000000",
+      "serialized": "295147905179352830000"
+    },
+    {
+      "ieee754": "44b52d02c7e14af5",
+      "serialized": "9.999999999999997e+22"
+    },
+    {
+      "ieee754": "44b52d02c7e14af6",
+      "serialized": "1e+23"
+    },
+    {
+      "ieee754": "44b52d02c7e14af7",
+      "serialized": "1.0000000000000001e+23"
+    },
+    {
+      "ieee754": "444b1ae4d6e2ef50",
+      "serialized": "1e+21"
+    },
+    {
+      "ieee754": "444b1ae4d6e2ef4f",
+      "serialized": "999999999999999900000"
+    },
+    {
+      "ieee754": "3eb0c6f7a0b5ed8d",
+      "serialized": "0.000001"
+    },
+    {
+      "ieee754": "3eb0c6f7a0b5ed8c",
+      "serialized": "9.999999999999997e-7"
+    },
+    {
+      "ieee754": "41b3de4355555553",
+      "serialized": "333333333.3333332"
+    },
+    {
+      "ieee754": "41b3de4355555557",
+      "serialized": "333333333.33333343"
+    },
+    {
+      "ieee754": "becbf647612f3696",
+      "serialized": "-0.0000033333333333333333"
+    },
+    {
+      "ieee754": "43143ff3c1cb0959",
+      "serialized": "1424953923781206.2"
+    },
+    {
+      "ieee754": "4000000000000000",
+      "serialized": "2"
+    },
+    {
+      "ieee754": "4034000000000000",
+      "serialized": "20"
+    },
+    {
+      "ieee754": "3fe0000000000000",
+      "serialized": "0.5"
+    },
+    {
+      "ieee754": "3e7ad7f29abcaf48",
+      "serialized": "1e-7"
+    }
+  ]
+}

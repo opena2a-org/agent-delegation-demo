@@ -1,0 +1,93 @@
+{
+  "$schema": "../schemas/mission-fixture-v1.schema.json",
+  "name": "mission-02/derivation-identical-entry-other-member-order",
+  "description": "The requested entry carries the same members as an Authority Set entry in another order. JCS sorts member names, so the two are byte-identical under the canonical form.",
+  "requirement": "Sections 5.4 and 6.3.2: equality is decided on the canonical form",
+  "spec": [
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "5.4 Subset Rule"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "6.3.2 Canonicalization Rules"
+    }
+  ],
+  "keypairRefs": [],
+  "verifierState": {
+    "clockRfc3339": "2026-11-14T15:00:00Z",
+    "missionIssuer": "https://examplebank.test",
+    "resource": "https://api.examplebank.test",
+    "declaredNarrowing": [
+      "mission_resource_access"
+    ],
+    "missions": [
+      {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test",
+        "state": "active",
+        "expires_at": "2026-11-14T18:00:00Z",
+        "authority_set": [
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "payments.create",
+              "balance.read"
+            ],
+            "constraints": {
+              "max_amount": {
+                "amount": "250.00",
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "statements.*"
+            ],
+            "delegation": {
+              "max_depth": 2,
+              "allowed_delegates": [
+                {
+                  "sub_profile": "ai_agent"
+                }
+              ]
+            }
+          },
+          {
+            "type": "urn:example:other_type",
+            "resource": "https://api.examplebank.test",
+            "level": "standard"
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "verifyResult": "ACCEPT"
+  },
+  "derivation": {
+    "missionId": "msn_demo_billpay_1",
+    "authorization_details": [
+      {
+        "constraints": {
+          "max_amount": {
+            "currency": "USD",
+            "amount": "250.00"
+          }
+        },
+        "actions": [
+          "payments.create",
+          "balance.read"
+        ],
+        "resource": "https://api.examplebank.test",
+        "type": "mission_resource_access"
+      }
+    ]
+  }
+}

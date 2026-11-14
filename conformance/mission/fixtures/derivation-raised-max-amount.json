@@ -1,0 +1,96 @@
+{
+  "$schema": "../schemas/mission-fixture-v1.schema.json",
+  "name": "mission-02/derivation-raised-max-amount",
+  "description": "The requested entry raises max_amount to 300.00 USD.",
+  "requirement": "Section 5.4: a constraint relaxation widens authority and is refused",
+  "spec": [
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "5.4 Subset Rule"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission-resource-access",
+      "ref": "https://github.com/mcguinness/mission-bound-authorization/blob/c7b542c48a5958813ddd227b2fc1986631437e5f/draft-mcguinness-oauth-mission-resource-access.md",
+      "section": "Initial Common Constraints"
+    }
+  ],
+  "keypairRefs": [],
+  "verifierState": {
+    "clockRfc3339": "2026-11-14T15:00:00Z",
+    "missionIssuer": "https://examplebank.test",
+    "resource": "https://api.examplebank.test",
+    "declaredNarrowing": [
+      "mission_resource_access"
+    ],
+    "missions": [
+      {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test",
+        "state": "active",
+        "expires_at": "2026-11-14T18:00:00Z",
+        "authority_set": [
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "payments.create",
+              "balance.read"
+            ],
+            "constraints": {
+              "max_amount": {
+                "amount": "250.00",
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "statements.*"
+            ],
+            "delegation": {
+              "max_depth": 2,
+              "allowed_delegates": [
+                {
+                  "sub_profile": "ai_agent"
+                }
+              ]
+            }
+          },
+          {
+            "type": "urn:example:other_type",
+            "resource": "https://api.examplebank.test",
+            "level": "standard"
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "verifyResult": "REJECT",
+    "rejectCategory": "NOT_A_SUBSET",
+    "reasonContains": "max_amount above",
+    "error": "invalid_authorization_details"
+  },
+  "derivation": {
+    "missionId": "msn_demo_billpay_1",
+    "authorization_details": [
+      {
+        "type": "mission_resource_access",
+        "resource": "https://api.examplebank.test",
+        "actions": [
+          "payments.create",
+          "balance.read"
+        ],
+        "constraints": {
+          "max_amount": {
+            "amount": "300.00",
+            "currency": "USD"
+          }
+        }
+      }
+    ]
+  }
+}

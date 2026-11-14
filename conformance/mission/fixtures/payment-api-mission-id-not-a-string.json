@@ -1,0 +1,99 @@
+{
+  "$schema": "../schemas/mission-fixture-v1.schema.json",
+  "name": "mission-02/payment-api-mission-id-not-a-string",
+  "description": "The token's mission id is the number 7, not a string.",
+  "requirement": "Section 7.8: the mission claim is a JSON object with a string id and a string issuer; the bank refuses a token whose mission member is not one with invalid_token",
+  "spec": [
+    {
+      "id": "draft-mcguinness-oauth-mission",
+      "ref": "https://datatracker.ietf.org/doc/html/draft-mcguinness-oauth-mission-02",
+      "section": "7.8 Mission Claim"
+    }
+  ],
+  "keypairRefs": [],
+  "verifierState": {
+    "clockRfc3339": "2026-11-14T15:00:00Z",
+    "missionIssuer": "https://examplebank.test",
+    "resource": "https://api.examplebank.test",
+    "declaredNarrowing": [
+      "mission_resource_access"
+    ],
+    "missions": [
+      {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test",
+        "state": "active",
+        "expires_at": "2026-11-14T18:00:00Z",
+        "authority_set": [
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "payments.create"
+            ],
+            "constraints": {
+              "max_amount": {
+                "amount": "250.00",
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "balance.read"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "verifyResult": "REJECT",
+    "rejectCategory": "NOT_ACTIVE",
+    "reasonContains": "malformed",
+    "httpStatus": 401,
+    "wwwAuthenticate": "Bearer error=\"invalid_token\""
+  },
+  "request": {
+    "token": {
+      "iss": "https://examplebank.test",
+      "sub": "did:opena2a:agent:demo_billpay_agent",
+      "aud": "https://api.examplebank.test",
+      "iat": 1794668400,
+      "exp": 1794668460,
+      "jti": "at_fixture_mission_id_not_a_string",
+      "authorization_details": [
+        {
+          "type": "mission_resource_access",
+          "resource": "https://api.examplebank.test",
+          "actions": [
+            "payments.create"
+          ],
+          "constraints": {
+            "max_amount": {
+              "amount": "150.00",
+              "currency": "USD"
+            }
+          }
+        }
+      ],
+      "mission": {
+        "id": 7,
+        "issuer": "https://examplebank.test"
+      }
+    },
+    "operation": {
+      "method": "POST",
+      "path": "/v1/payments",
+      "body": {
+        "creditorAccount": "DEMO-0000-1180",
+        "amount": {
+          "amount": "120.00",
+          "currency": "USD"
+        }
+      }
+    }
+  }
+}

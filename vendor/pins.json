@@ -1,0 +1,44 @@
+{
+  "secretlessAi": {
+    "repository": "https://github.com/opena2a-org/secretless-ai",
+    "commit": "0b25f7451f41482d247148347cdd242aa02770a4",
+    "label": "0.23.1-unreleased.g0b25f7451f41",
+    "tarball": "vendor/secretless-ai-0.23.1-unreleased.g0b25f7451f41.tgz",
+    "sha256": "7add7fd7ae52aa339656ed3a27d3b5aa53285f5d8a82ae0540cabf21c1230388",
+    "filesManifest": "vendor/secretless-ai-0.23.1-unreleased.g0b25f7451f41.files.sha256",
+    "builtWith": { "node": "v26.12.0", "npm": "11.20.0" },
+    "importedModule": "secretless-ai/dist/broker/index.js"
+  },
+  "aapConformance": {
+    "repository": "https://github.com/opena2a-standards/aap-conformance",
+    "commit": "a4ab3d9e27bf1a0a3edd8029e0cfca5e0549d078",
+    "path": "verifiers/node/verify.mjs",
+    "vendoredPath": "vendor/aap-conformance/a4ab3d9e27bf/verify.mjs",
+    "blob": "2794b20638b1bb4ff6ff196f52efa11ef795bbb9",
+    "sha256": "2cd68050f1f6d45ac74935b58dfe7b4a53932e3c2ec09d65bcf8a21edeef0f67",
+    "license": "Apache-2.0",
+    "noblePostQuantum": "0.6.1"
+  },
+  "atxConformance": {
+    "repository": "https://github.com/opena2a-standards/atx-conformance",
+    "commit": "20355a14863788209871fca5ee8109c1e23a58c7",
+    "vector": "vectors/issuer-secondary.json",
+    "generator": "scripts/generate-fixtures",
+    "credentials": {
+      "fixtures/agents/billpay-agent.atx.json": "8e66c6db3c168f273235414b475bb8c6a5f630c97882f8882a8c99d6605fbfa6",
+      "fixtures/agents/budget-agent.atx.json": "7b9f25f1488c350ff83ac62dd671f3a6ba200a4f5efab743b93e2c65f7adfe65"
+    },
+    "lifetimeCheckCredentials": {
+      "test/fixtures/atx-lifetime/lifetime-issued-8-days-before.atx.json": "a6de390bac0fda20974ead87f3e8eb61e99537889b532a34adb92f92dd371624",
+      "test/fixtures/atx-lifetime/lifetime-issued-1-day-before.atx.json": "67d967de76bd624bd9639a4fce95b855c4fe1a4e25f29040243e235338114ebf"
+    }
+  },
+  "atxSpec": {
+    "repository": "https://github.com/opena2a-standards/atx-spec",
+    "commit": "da5d2c9226863e962a47fcfab617bd5ca0246ad9"
+  },
+  "aapSpec": {
+    "repository": "https://github.com/opena2a-standards/agent-authorization-protocol",
+    "commit": "61ee86a0534204c857bfe826a6b7d5643ecacef3"
+  }
+}

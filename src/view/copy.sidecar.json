@@ -1,0 +1,105 @@
+{
+  "source": {
+    "deckSha256": "ba931818fcb053a8cb969b27496454df76734051235ae16c5f92f83bb888dcf4",
+    "labelTableSha256": "8543f6c562ed831693671ad713172472f3be4bf9e6b33e1477b449863a97e60f"
+  },
+  "marker": "PENDING-WORDS marks a string whose final words are not yet set; HELD marks a string withheld from this file.",
+  "strings": {
+    "LABELS.L4": {
+      "status": "ruled",
+      "reason": "The grant path agent gets a grant name and a copy of the broker token, which every agent shares and which can't act on an account alone, and never the customer's password or a token for the account."
+    },
+    "LABELS.L10": {
+      "status": "ruled",
+      "reason": "On every screen that shows the grant path, and in the limits: a copy of the credential with the grant name is accepted as this agent."
+    },
+    "SCREENS (offline card): \"Run the four grant path scenarios again with every connection blocked except those between the demo's own processes.\"": {
+      "status": "ruled",
+      "reason": "The card sentence as ruled, whether the deck carries it or this export puts it in place. It names what the block allows: the connections between the demo's own processes. The browser and the server that serves it run outside the block."
+    },
+    "SCREENS (offline subB)": {
+      "status": "ruled",
+      "reason": "Added beside the subhead until the deck carries it: the subhead of the measured state when the scenario runs did not count 0 outbound attempts. The view selects it."
+    },
+    "SCREENS (offline cols[0].title)": {
+      "status": "ruled",
+      "reason": "In place of the deck's left column title until the deck carries it: it names how that run was made, the way every run of the demo is made."
+    },
+    "SCREENS (summary cta.selfLead)": {
+      "status": "ruled",
+      "reason": "The lead as ruled, whether the deck carries it or this export puts it in place. It names the install step."
+    },
+    "SCREENS (summary limits item 17)": {
+      "status": "ruled",
+      "reason": "In place of the deck's item until the deck carries it: the broker is an unreleased local build with no provenance attestation, and it answers grant requests on a local TCP port as well as on its Unix socket. The second sentence stays while that port answers an authenticated grant request at the pin."
+    },
+    "RULED_EXTRA.fictionalLine": {
+      "status": "ruled",
+      "reason": "Required on every screen and every screenshot; placement ruled."
+    },
+    "RULED_EXTRA.l6ScopeVariant": {
+      "status": "ruled",
+      "reason": "Printed instead of L6 when a minted token's scope is not the consent id."
+    },
+    "RULED_EXTRA.restartTook": {
+      "status": "ruled",
+      "reason": "Follows L12 on the scenario 3 panel."
+    },
+    "RULED_EXTRA.offlineNotMeasured": {
+      "status": "ruled",
+      "reason": "The second sentence of the result line when the count is not measured; {reason} is one of offlineNotMeasuredReasons."
+    },
+    "RULED_EXTRA.offlineNotMeasuredReasons": {
+      "status": "ruled",
+      "reason": "A closed list in the order that picks the reason shown: the earliest that holds. The result records every reason that holds."
+    },
+    "RULED_EXTRA.offlineNotRun": {
+      "status": "ruled",
+      "reason": "The right column's outcome when the rerun's root process wrote no hello line."
+    },
+    "RULED_EXTRA.offlineNotRunResult": {
+      "status": "ruled",
+      "reason": "The result line in that state; {reason} is one of offlineNotRunReasons."
+    },
+    "RULED_EXTRA.offlineNotRunReasons": {
+      "status": "ruled",
+      "reason": "A closed list, one reason per cause."
+    },
+    "RULED_EXTRA.offlineNotRunNeeds": {
+      "status": "ruled",
+      "reason": "The why line in that state, keyed by its reason: what the check needs."
+    },
+    "RULED_EXTRA.offlineNoDecision": {
+      "status": "added",
+      "reason": "The text runner's words for a scenario whose run returned no decision, moved here from the runner with its bytes unchanged. No screen shows them."
+    },
+    "RULED_EXTRA.buildNotFromGit": {
+      "status": "ruled",
+      "reason": "The build part of the footer when the demo does not run from a git clone, in place of the build and its sha."
+    },
+    "RULED_EXTRA.pageLead": {
+      "status": "ruled",
+      "reason": "The website demo page's problem lead."
+    },
+    "RULED_EXTRA.pageAnswer": {
+      "status": "ruled",
+      "reason": "The website demo page's one-line answer."
+    },
+    "RULED_EXTRA.pageLeadShort": {
+      "status": "ruled",
+      "reason": "The page lead's cut form, used in its place when the page's served test fails."
+    },
+    "RULED_EXTRA.pageAnswerShort": {
+      "status": "ruled",
+      "reason": "The page answer's cut form, used in its place when the page's served test fails."
+    },
+    "PENDING_WORDS.offlineDiffersRow": {
+      "status": "PENDING-WORDS",
+      "reason": "The words for a blocked run's decision that differs and that no row of the offline screen names; the row's tag after them is rowDifferent. Until they are set the row stays empty."
+    },
+    "bin/start.mjs launcher lines": {
+      "status": "ruled",
+      "reason": "Refusal, ready and stop lines in the words ruled for the start command."
+    }
+  }
+}

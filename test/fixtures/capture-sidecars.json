@@ -1,0 +1,93 @@
+{
+  "about": [
+    "The sidecars of the committed captures. docs/demo/walkthrough.demo.mjs writes a sidecar for each capture to captures/ under its records directory, outside the clone, so this file keeps what README.md and its test read from them.",
+    "Each row is a file under docs/captures/ that a sidecar describes: the sidecar, its sha256, the sha256 it records for the file (image.sha256 in a still's sidecar; video.gif.sha256 and video.tracks[].sha256 in captures/walkthrough.json) and the Chrome version it records (image.chromeVersion or video.chromeVersion).",
+    "Read from the stills run and the recording run at commit 2db40bb, 2026-10-30. When the captures are taken again, the rows are rewritten from the new sidecars in the same change, and the requirements line of README.md names their Chrome version."
+  ],
+  "rows": [
+    {
+      "file": "docs/captures/00-overview.png",
+      "sidecar": "captures/00-overview.json",
+      "sidecarSha256": "151fd6728aeeba28b90ad21983feb6af62671649c160c8d77af12a8bba5e34c3",
+      "sha256": "e8dbae1c91c9eef749cf52ed2f592fc36fb9074889fb5b58f9a60bc5dc618499",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/01-setup.png",
+      "sidecar": "captures/01-setup.json",
+      "sidecarSha256": "98a00b1835ebdb27d7165f73cfea8976856102d3174d2b9650f8d7d0fc3509b0",
+      "sha256": "d4cdfbd1d858aa06076f0ac4058089ccbf3032b0f51f7c1b47cb28f350f0f474",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/02-scenario-1-normal-bill.png",
+      "sidecar": "captures/02-scenario-1-normal-bill.json",
+      "sidecarSha256": "f8aef1cf822fde7439c38f427086e8759e94447a62e09f1a8c15275d28f03e2b",
+      "sha256": "1454b9ffbe8999e7d3bf0b91826a40e6e7c3b25720636259b6a5e14547bf77fa",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/03-scenario-2-fake-invoice.png",
+      "sidecar": "captures/03-scenario-2-fake-invoice.json",
+      "sidecarSha256": "8257ea71f49dff7e097b5d77b2e0a8e94dc1bc9652db64ad125641de6f7dbcd7",
+      "sha256": "a93bacc70d283c22d127bb9f02932a8a0095e50c69f7e8fecc8c8da2c28e0502",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/04-scenario-3-stop-one-agent.png",
+      "sidecar": "captures/04-scenario-3-stop-one-agent.json",
+      "sidecarSha256": "f408ccaca4ad1c2d64abb98da97ee6dd456dedbaf7db1cec25c90758d5e0962e",
+      "sha256": "de379fc5e90331dfa2898f4954bc1725e760b1e3040e349d90efeabb6c757492",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/05-scenario-4-dispute.png",
+      "sidecar": "captures/05-scenario-4-dispute.json",
+      "sidecarSha256": "ff2d8caa15ee0aadcac8191b2417ab9fd5dddb47e5ff717cce8eae39bfc78ac1",
+      "sha256": "fd5060d1e183400da159fda851f49c4f8d077e03a9e2575137ae283713894e0f",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/06-offline-check.png",
+      "sidecar": "captures/06-offline-check.json",
+      "sidecarSha256": "9d5c42508e3d7a47eb78e8490ef13cf9fe1a3b1a6b9993bbb42860f1548f2876",
+      "sha256": "af4e2819f210cd86cfefec1fa1923fbdf38457ac4396cc91f9a53f0787932272",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/07-summary.png",
+      "sidecar": "captures/07-summary.json",
+      "sidecarSha256": "a28c29b2b50f1c2bc63872000bcce2eb6c7f89a7c29c727eb3555ce3186ca3e6",
+      "sha256": "3177b0585435d7944d31de608778696ac16a91027cfe8c14bde7c36c9d7514e6",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/08-summary-limits.png",
+      "sidecar": "captures/08-summary-limits.json",
+      "sidecarSha256": "626d9e6f0a7a0a81c232f97618d189fb052c1a66023201dddcf2cc2e5ca5c390",
+      "sha256": "377bc41e8da8ef35d99f1f5a7ed6b7a87474b35a3d94127103c48129d57868c1",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/walkthrough-fake-invoice.gif",
+      "sidecar": "captures/walkthrough.json",
+      "sidecarSha256": "0e0fd1db956fc06abfc7c9610e3a02b2de5d9036421f72a21d26453839849afa",
+      "sha256": "7dfcb6f0183655bc733c4f1ee6eab56526a5824d06a5044896a0d26a03424fe2",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/walkthrough.captions.vtt",
+      "sidecar": "captures/walkthrough.json",
+      "sidecarSha256": "0e0fd1db956fc06abfc7c9610e3a02b2de5d9036421f72a21d26453839849afa",
+      "sha256": "53c265d79642d22594265ee3028f59c88d39e2b8ff6b85b77ecc90684fc26f22",
+      "chromeVersion": "156.0.8078.48"
+    },
+    {
+      "file": "docs/captures/walkthrough.chapters.vtt",
+      "sidecar": "captures/walkthrough.json",
+      "sidecarSha256": "0e0fd1db956fc06abfc7c9610e3a02b2de5d9036421f72a21d26453839849afa",
+      "sha256": "7a6c62d1297e21f0eb0565f7dcc5d6246a7485aa2dc2edb3f2509bdca30c0e7f",
+      "chromeVersion": "156.0.8078.48"
+    }
+  ]
+}

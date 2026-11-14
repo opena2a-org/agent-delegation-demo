@@ -1,0 +1,17 @@
+{
+  "source": {
+    "repository": "https://github.com/opena2a-standards/atx-conformance",
+    "commit": "20355a14863788209871fca5ee8109c1e23a58c7",
+    "path": "vectors/issuer-secondary.json"
+  },
+  "trustedIssuers": [
+    "did:opena2a:authority:partner.example"
+  ],
+  "publicKeys": [
+    {
+      "algorithm": "Ed25519",
+      "publicKeyHex": "2043fa51c3d9e4a21a535ccb38bdc4fb56083737d22059d69475e7e43c47f582",
+      "keyId": "did:opena2a:authority:partner.example#key-1"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "../schemas/mission-fixture-v1.schema.json",
+  "name": "mission-02/derivation-max-amount-leading-zero",
+  "description": "The requested max_amount is 0100.00. The decimal grammar admits leading zeros, and the value is 100 in decimal value space, below the reference 250.00.",
+  "requirement": "The type relation and Decimal Values: the grammar admits the value, and it compares in decimal value space",
+  "spec": [
+    {
+      "id": "draft-mcguinness-oauth-mission-resource-access",
+      "ref": "https://github.com/mcguinness/mission-bound-authorization/blob/c7b542c48a5958813ddd227b2fc1986631437e5f/draft-mcguinness-oauth-mission-resource-access.md",
+      "section": "Decimal Values"
+    },
+    {
+      "id": "draft-mcguinness-oauth-mission-resource-access",
+      "ref": "https://github.com/mcguinness/mission-bound-authorization/blob/c7b542c48a5958813ddd227b2fc1986631437e5f/draft-mcguinness-oauth-mission-resource-access.md",
+      "section": "Initial Common Constraints"
+    }
+  ],
+  "keypairRefs": [],
+  "verifierState": {
+    "clockRfc3339": "2026-11-14T15:00:00Z",
+    "missionIssuer": "https://examplebank.test",
+    "resource": "https://api.examplebank.test",
+    "declaredNarrowing": [
+      "mission_resource_access"
+    ],
+    "missions": [
+      {
+        "id": "msn_demo_billpay_1",
+        "issuer": "https://examplebank.test",
+        "state": "active",
+        "expires_at": "2026-11-14T18:00:00Z",
+        "authority_set": [
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "payments.create",
+              "balance.read"
+            ],
+            "constraints": {
+              "max_amount": {
+                "amount": "250.00",
+                "currency": "USD"
+              }
+            }
+          },
+          {
+            "type": "mission_resource_access",
+            "resource": "https://api.examplebank.test",
+            "actions": [
+              "statements.*"
+            ],
+            "delegation": {
+              "max_depth": 2,
+              "allowed_delegates": [
+                {
+                  "sub_profile": "ai_agent"
+                }
+              ]
+            }
+          },
+          {
+            "type": "urn:example:other_type",
+            "resource": "https://api.examplebank.test",
+            "level": "standard"
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "verifyResult": "ACCEPT"
+  },
+  "derivation": {
+    "missionId": "msn_demo_billpay_1",
+    "authorization_details": [
+      {
+        "type": "mission_resource_access",
+        "resource": "https://api.examplebank.test",
+        "actions": [
+          "payments.create",
+          "balance.read"
+        ],
+        "constraints": {
+          "max_amount": {
+            "amount": "0100.00",
+            "currency": "USD"
+          }
+        }
+      }
+    ]
+  }
+}
