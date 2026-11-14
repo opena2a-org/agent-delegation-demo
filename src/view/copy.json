@@ -37,7 +37,7 @@
     ],
     "pathA": "Path A: shared password",
     "pathB": "Path B: delegated grant",
-    "footerLeft": "Every customer, account, payee and payment in this demo is fictional. Scenarios are scripted.",
+    "footerLeft": "Scenarios are scripted.",
     "footerRight": "Build {sha7} · Run {runId} · {ranAtUtc} UTC",
     "footerIdle": "Build {sha7} · Not run yet",
     "footerModifiedBuild": "Build {sha7} (modified)",
@@ -715,7 +715,7 @@
       "limits": {
         "h2": "Where this demo stands",
         "items": [
-          "Example Bank is a mock bank. Every customer, account, payee and payment in this demo is fictional. No real bank, account or credential is used.",
+          "Example Bank is a mock bank. No real bank, account or credential is used.",
           "The agents and the scenarios are scripted, including the hidden line in scenario 2, so every run produces the same outcomes.",
           "This mock bank runs no one time code or device check on the password path.",
           "The consent record's field names are adapted from UK Open Banking variable recurring payment consents. It isn't an implementation of that standard.",

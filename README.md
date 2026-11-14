@@ -121,7 +121,7 @@ If you run security at a bank, credit union or aggregator, email info@opena2a.or
 
 ## Where this demo stands
 
-- Example Bank is a mock bank. Every customer, account, payee and payment in this demo is fictional. No real bank, account or credential is used.
+- Example Bank is a mock bank. No real bank, account or credential is used.
 
 - The agents and the scenarios are scripted, including the hidden line in scenario 2, so every run produces the same outcomes.
 

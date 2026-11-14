@@ -29,15 +29,11 @@ let ctx;
 let page;
 const seen = {}; // route -> { metrics, html, text }
 
-// Measured in the page: the footer and its line, the page height, and every
-// text node whose box crosses the footer's top edge.
+// Measured in the page: the footer, the page height, and every text node
+// whose box crosses the footer's top edge.
 function footerCells() {
   const footer = document.querySelector('footer');
   const f = footer.getBoundingClientRect();
-  const line = document.querySelector('.footer-line');
-  const cs = getComputedStyle(line);
-  const fontSize = parseFloat(cs.fontSize);
-  const lh = cs.lineHeight.endsWith('px') ? parseFloat(cs.lineHeight) : fontSize * parseFloat(cs.lineHeight);
   const straddling = [];
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   for (let n = walker.nextNode(); n; n = walker.nextNode()) {
@@ -54,9 +50,7 @@ function footerCells() {
     footerBottom: f.bottom,
     footerScrollWidth: footer.scrollWidth,
     footerClientWidth: footer.clientWidth,
-    lineFont: fontSize,
-    lineRows: line.getBoundingClientRect().height / lh,
-    lineText: line.textContent,
+    footerHeight: f.height,
     leftText: document.querySelector('.footer-left').textContent,
     straddling,
   };
@@ -125,19 +119,15 @@ test('t2: the seven fixed routes are 900 px tall: no scroll at 1440x900', () => 
   for (const route of FIXED) assert.equal(seen[route].cells.scrollHeight, 900, route);
 });
 
-test('t3: the fictional line is at least 42.24 px and one line', () => {
+test('t3: the fictional line is on no screen, and the footer is one slim row at 1440x900', () => {
   for (const route of ROUTES) {
-    const c = seen[route].cells;
-    assert.ok(c.lineFont >= 42.24, `${route} ${c.lineFont}`);
-    assert.ok(Math.abs(c.lineRows - 1) < 0.05, `${route} ${c.lineRows}`);
+    assert.equal(seen[route].text.includes(COPY.RULED_EXTRA.fictionalLine), false, route);
+    assert.ok(seen[route].cells.footerHeight <= 40, `${route} ${seen[route].cells.footerHeight}`);
   }
 });
 
-test('t4: the line is the fictional line and the footer text is footerLeft, byte for byte', () => {
-  for (const route of ROUTES) {
-    assert.equal(seen[route].cells.lineText, COPY.RULED_EXTRA.fictionalLine, route);
-    assert.equal(seen[route].cells.leftText, COPY.GLOBAL.footerLeft, route);
-  }
+test('t4: the footer text is footerLeft, byte for byte', () => {
+  for (const route of ROUTES) assert.equal(seen[route].cells.leftText, COPY.GLOBAL.footerLeft, route);
 });
 
 test('t5: no text crosses the footer\'s top edge, on every route at scroll 0 and on the summary at the end of the page', async () => {
@@ -172,7 +162,7 @@ test('t8: the summary at scroll 0 ends on the limits heading, 8 px or more above
   assert.ok(r.self <= r.footerTop, `the run it yourself block ends at or above the footer: ${JSON.stringify(r)}`);
 });
 
-test('t7: at 375x812 the footer fits its width, the line is 16 px, and t4 holds', async () => {
+test('t7: at 375x812 the footer fits its width and t4 holds', async () => {
   const phone = await newContext(browser, { width: 375, height: 812 });
   const p = await phone.newPage();
   for (const route of ROUTES) {
@@ -180,8 +170,6 @@ test('t7: at 375x812 the footer fits its width, the line is 16 px, and t4 holds'
     await waitLoaded(p);
     const c = await p.evaluate(footerCells);
     assert.ok(c.footerScrollWidth <= c.footerClientWidth, `${route} ${c.footerScrollWidth} > ${c.footerClientWidth}`);
-    assert.equal(c.lineFont, 16, route);
-    assert.equal(c.lineText, COPY.RULED_EXTRA.fictionalLine, route);
     assert.equal(c.leftText, COPY.GLOBAL.footerLeft, route);
     assert.ok(await p.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `${route} scrolls sideways`);
   }

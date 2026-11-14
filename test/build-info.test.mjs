@@ -103,12 +103,14 @@ test('this checkout: one answer for the launcher and the footer', () => {
   assert.equal(launcherBuildLabel(info), `build ${info.sha7}${info.modified ? ' (modified)' : ''}`);
 });
 
-test('the footer refuses copy whose footer text does not begin with the fictional line and one space', () => {
-  assert.deepEqual(footerLeftParts(COPY), { line: COPY.RULED_EXTRA.fictionalLine, rest: COPY.GLOBAL.footerLeft.slice(COPY.RULED_EXTRA.fictionalLine.length + 1) });
+test('the footer refuses copy whose footer text is not one non-empty line', () => {
+  assert.deepEqual(footerLeftParts(COPY), { rest: COPY.GLOBAL.footerLeft });
   const broken = (footerLeft) => ({ ...COPY, GLOBAL: { ...COPY.GLOBAL, footerLeft } });
-  assert.throws(() => footerLeftParts(broken(`Scenarios are scripted. ${COPY.RULED_EXTRA.fictionalLine}`)));
-  assert.throws(() => footerLeftParts(broken(`${COPY.RULED_EXTRA.fictionalLine}Scenarios are scripted.`)));
-  assert.throws(() => footerLeftParts(broken(COPY.RULED_EXTRA.fictionalLine.toLowerCase())));
+  assert.throws(() => footerLeftParts(broken('')));
+  assert.throws(() => footerLeftParts(broken('   ')));
+  assert.throws(() => footerLeftParts(broken(' Scenarios are scripted.')));
+  assert.throws(() => footerLeftParts(broken('Scenarios are\nscripted.')));
+  assert.throws(() => footerLeftParts(broken(null)));
   const src = fs.readFileSync(path.join(ROOT, 'src/server/main.mjs'), 'utf8');
   assert.ok(src.includes('\nfooterLeftParts(COPY);\n'), 'the view server checks the footer text when it loads');
 });

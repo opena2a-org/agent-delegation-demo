@@ -58,7 +58,8 @@ test('eight routes, one page each: its title, the step chips with the current on
     assert.ok(page.includes(`<main id="main" data-screen="${s.id}" data-state="loading" aria-busy="true"></main>`), s.route);
     assert.equal((page.match(/aria-current="step"/g) || []).length, 1);
     assert.ok(page.includes(`href="${s.route}" aria-current="step">${COPY.GLOBAL.chips[s.chip]}</a>`), s.route);
-    assert.ok(page.includes(`<span class="footer-line">${COPY.RULED_EXTRA.fictionalLine}</span> <span class="footer-note">`), s.route);
+    assert.ok(page.includes(`<p class="footer-left"><span class="footer-note">${COPY.GLOBAL.footerLeft}</span></p>`), s.route);
+    assert.equal(page.includes(COPY.RULED_EXTRA.fictionalLine), false, `${s.route}: the fictional line is off the page`);
     assert.equal(/<script(?![^>]*\ssrc="\/assets\/view\.mjs")/.test(page), false, 'no script but the page module');
     assert.equal(/\sstyle="/.test(page), false, 'no inline style');
   }

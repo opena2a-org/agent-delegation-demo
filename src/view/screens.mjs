@@ -180,7 +180,12 @@ export class Render {
   overview(s) {
     return `<h1>${this.t(s.h1)}</h1><p class="lead">${this.t(s.lead)}</p><p class="answer">${this.t(s.answer)}</p>`
       + `<section class="pathcards">${s.pathCards.map((p) => `<article class="pathcard" data-side="${esc(p.side)}"><h2>${this.t(p.title)}</h2><p>${this.t(p.body)}</p>${this.notes(p.notes)}</article>`).join('')}</section>`
-      + `<section class="scards">${s.scenarioCards.map(([h, p]) => `<article class="scard"><h3>${this.t(h)}</h3><p>${this.t(p)}</p></article>`).join('')}</section>`
+      + `<section class="scards">${s.scenarioCards.map(([h, p], i) => {
+        // Each card opens its own screen: the four scenarios, then the offline check.
+        const target = this.copy.SCREENS.find((x) => x.id === ['s1', 's2', 's3', 's4', 'offline'][i]);
+        const inner = `<h3>${this.t(h)}</h3><p>${this.t(p)}</p>`;
+        return target ? `<a class="scard" href="${esc(target.route)}">${inner}</a>` : `<article class="scard">${inner}</article>`;
+      }).join('')}</section>`
       + `<div class="actions"><a class="btn primary" href="/setup" data-action="next">${this.t(s.button)}</a></div>`;
   }
 

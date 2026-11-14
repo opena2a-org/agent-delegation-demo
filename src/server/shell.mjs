@@ -1,7 +1,6 @@
 // The page every screen route answers with: the top bar with the step chips,
 // the main region the page script fills from the bank's results, and the
-// footer. The footer is filled here, so the fictional line is on the page
-// before any script runs.
+// footer. The footer is filled here, before any script runs.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -41,14 +40,13 @@ export function shell(copy, screenId, build, run) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(screen.docTitle)}</title>
-<link rel="preload" href="/assets/fonts/inter-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/view.css">
 <script type="module" src="/assets/view.mjs"></script>
 </head>
 <body data-screen="${esc(screen.id)}">
 <header class="topbar"><div class="brand"><div class="t">${esc(copy.GLOBAL.appTitle)}</div><div class="s">${esc(copy.GLOBAL.appSubtitle)}</div></div><nav class="chips" aria-label="Steps">${chips}</nav></header>
 <main id="main" data-screen="${esc(screen.id)}" data-state="loading" aria-busy="true"></main>
-<footer><p class="footer-left"><span class="footer-line">${esc(left.line)}</span> <span class="footer-note">${esc(left.rest)}</span></p><p class="footer-prov">${esc(provenance)}</p></footer>
+<footer><p class="footer-left"><span class="footer-note">${esc(left.rest)}</span></p><p class="footer-prov">${esc(provenance)}</p></footer>
 </body>
 </html>
 `;

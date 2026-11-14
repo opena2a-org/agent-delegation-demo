@@ -1,21 +1,18 @@
-// The footer of every screen. Left: the fictional line on a row of its own,
-// then the rest of the footer text. Right: the build and the run the screen
-// shows. Used by the view server, which refuses to start on copy that breaks
-// it, and by the page.
+// The footer of every screen. Left: the footer note. Right: the build and the
+// run the screen shows. Used by the view server, which refuses to start on
+// copy that breaks it, and by the page.
 
 import { fill } from './fill.mjs';
 
 const BUILD = 'Build {sha7}';
 
-// The fictional line and the rest of footerLeft after it and one space. The
-// copy keys are not split: footerLeft stays one string.
+// The footer note, footerLeft as one string. It must be one non-empty line.
 export function footerLeftParts(copy) {
-  const line = copy.RULED_EXTRA.fictionalLine;
   const left = copy.GLOBAL.footerLeft;
-  if (typeof line !== 'string' || line === '' || typeof left !== 'string' || !left.startsWith(`${line} `) || left.length === line.length + 1) {
-    throw new Error('the footer text does not begin with the fictional line and one space');
+  if (typeof left !== 'string' || left.trim() === '' || left !== left.trim() || /\n/.test(left)) {
+    throw new Error('the footer text is not one non-empty line');
   }
-  return { line, rest: left.slice(line.length + 1) };
+  return { rest: left };
 }
 
 // build is { fromGit, sha7, modified }; run is { runId, ranAtUtc } for the
